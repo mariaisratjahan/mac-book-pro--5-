@@ -1,5 +1,4 @@
 function calculatingCost(feild,value,isUpdated,buttonId){
-    // debugger;
     const cost=document.getElementById(feild+'-cost');
     if(isUpdated == false){
         const getCostValue=parseInt(cost.innerText);
@@ -90,7 +89,7 @@ document.getElementById('discount-feild').addEventListener('keyup', function(){
     const getValue=getDiscount.value;
     const footerPrice=document.getElementById('footer-price');
     const footerPriceValue=parseInt(footerPrice.innerText);
-    if(getValue == 'maria'){
+    if(getValue == 'stevekaku'){
         const getDiscountPrice=footerPriceValue/5;
         footerPrice.innerText=getDiscountPrice;
 
