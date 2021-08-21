@@ -32,23 +32,23 @@
                             <div class="mb-4 pb-4">
                                 <h4>Memory</h4>
                                  <div>
-                                     <button>8GB unified memory</button>
-                                     <button>16GB unified memory</button>
+                                     <button id="GB-memory-btn">8GB unified memory</button>
+                                     <button  id="extraGB-meory-btn">16GB unified memory</button>
                                  </div>
                             </div>
                             <div class="mb-4 pb-4">
                                 <h4>Storage</h4>
                                  <div>
-                                     <button>256GB SSD storage</button>
-                                     <button>512GB SSD storage</button>
-                                     <button>1TB SSD storage</button>
+                                     <button id='GB-storage-btn'>256GB SSD storage</button>
+                                     <button id='extraGB-storage-btn'>512GB SSD storage</button>
+                                     <button id='TB-storage-btn'>1TB SSD storage</button>
                                  </div>
                             </div>
                             <div class="mb-4 pb-4">
                                 <h4>Choose your delivery option</h4>
                                  <div>
-                                     <button>Friday,Aug 25 FREE Prime delivery</button>
-                                     <button>Friday,Aug 21 delivery charge $20</button>
+                                     <button id="delivey-btn">Friday,Aug 25 FREE Prime delivery</button>
+                                     <button id="fast-delibery-btn">Friday,Aug 21 delivery charge $20</button>
                                  </div>
                             </div>
                           </div>
@@ -68,7 +68,7 @@
                              <h6>Extra memory cost</h6>
                             </div>
                             <div class="col-6">
-                              <h6>$ <span>0</span> </h6>
+                              <h6>$ <span id="extra-memory-cost">0</span> </h6>
                             </div>
                           </div>
                         <div class="row">
@@ -76,7 +76,7 @@
                              <h6>Extra storage cost</h6>
                             </div>
                             <div class="col-6">
-                              <h6>$ <span>0</span> </h6>
+                              <h6>$ <span id="extra-storage-cost">0</span> </h6>
                             </div>
                           </div>
                         <div class="row">
@@ -84,7 +84,7 @@
                              <h6>Delivery charge</h6>
                             </div>
                             <div class="col-6">
-                              <h6>$ <span>0</span> </h6>
+                              <h6>$ <span id="extra-delivery-cost">0</span> </h6>
                             </div>
                           </div>
                           <hr>
@@ -93,7 +93,7 @@
                              <h6>Total price</h6>
                             </div>
                             <div class="col-6">
-                              <h6>$ <span>1299</span> </h6>
+                              <h6>$ <span id="total-price">1299</span> </h6>
                             </div>
                           </div>
 
@@ -101,8 +101,8 @@
                     <!-- promo code section -->
                     <div class="col-12">
                         <h4>Add promo code</h4>
-                        <input type="text">
-                        <button class="bg-danger text-white border-0 px-4 py-1">Apply</button>
+                        <input id="discount-feild" type="text">
+                        <button id="submit-code" class="bg-danger text-white border-0 px-4 py-1">Apply</button>
 
                     </div>
                   </div>
@@ -114,7 +114,7 @@
     <footer class="p-5 mt-4">
         <div class="row text-center">
             <div class="col">
-              <h1>Total: $<span>1299</span></h1>
+              <h1>Total: $<span id="footer-price">1299</span></h1>
             </div>
           </div>
     </footer>
