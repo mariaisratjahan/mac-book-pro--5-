@@ -1,4 +1,5 @@
 function calculatingCost(feild,value,isUpdated,buttonId){
+    // debugger;
     const cost=document.getElementById(feild+'-cost');
     if(isUpdated == false){
         const getCostValue=parseInt(cost.innerText);
