@@ -1,98 +1,73 @@
-function calculatingCost(feild,value,isUpdated,buttonId){
-    // debugger;
-    const cost=document.getElementById(feild+'-cost');
-    if(isUpdated == false){
-        const getCostValue=parseInt(cost.innerText);
-        const setValue=cost.innerText=value;       
-        
-    }
-    else if(isUpdated == true){
-        // storage btn
-        if((feild+'-cost') == 'extra-storage-cost'){
-            if(buttonId == 'extraGB-storage-btn'){
-                const getCostValue=parseInt(cost.innerText);
-                const setValue=cost.innerText=value;
-                return setValue;
-            }
-            else if(buttonId == 'TB-storage-btn'){
-                const getCostValue=parseInt(cost.innerText);
-                const setValue=cost.innerText=value;
-                return setValue;
-            }          
-            
-        }
-        else{
-            const getCostValue=parseInt(cost.innerText);
-            const setValue=cost.innerText=value;
-            return setValue;
-        }        
-    }
-}
-function calculatingTotalPrice(getValue,isIncreasing){
-    const price=document.getElementById('total-price');
+function calculatingTotalPrice(){
+    const memoryCost=document.getElementById('extra-memory-cost');
+    const deliveryCost=document.getElementById('extra-delivery-cost');
+    const storageCost=document.getElementById('extra-storage-cost');
+    const total=document.getElementById('total-price');
     const footerPrice=document.getElementById('footer-price');
-    const footerPriceValue=parseInt(footerPrice.innerText);
-    const priceValue=parseInt(price.innerText);
-    if(isIncreasing == true){
-       
-        const updatePrice=priceValue+getValue;
-        price.innerText=updatePrice;
-        footerPrice.innerText=updatePrice;
-
-    }
-    else if(isIncreasing == false){
-        const updatePrice=priceValue-getValue;
-        price.innerText=updatePrice;
-        footerPrice.innerText=updatePrice;
-    }
+    const memoryPrice=parseInt(memoryCost.innerText);
+    const storagePrice= parseInt(storageCost.innerText);
+    const deliveryCharge=parseInt(deliveryCost.innerText);
+    const totalCost=memoryPrice+storagePrice+deliveryCharge;
+    total.innerText=1299+totalCost;
+    footerPrice.innerText= total.innerText;
+  
+}
+function getDiscount(){ 
+    const total=document.getElementById('total-price');
+    const footerPrice=document.getElementById('footer-price');
+    const discountPriceIs=total.innerText/5;
+    const updatePrice=total.innerText-discountPriceIs;
+    footerPrice.innerText=updatePrice;
 
 }
-//handling select memory button-----------------------
+//handling memory button events
 document.getElementById('GB-memory-btn').addEventListener('click', function(){
-   const getTotalCost=calculatingCost('extra-memory',0,false);
-   calculatingTotalPrice(180,false);  
-  
-})
-document.getElementById('extraGB-meory-btn').addEventListener('click', function(){
-   const getTotalCost=calculatingCost('extra-memory',180,true);
-   calculatingTotalPrice(180,true);
-})
-//handling delivery charge button--------------------------
-document.getElementById('delivey-btn').addEventListener('click', function(){
-   const getTotalCost=calculatingCost('extra-delivery',0,false);
-   calculatingTotalPrice(20,false);
-})
-document.getElementById('fast-delibery-btn').addEventListener('click', function(){
-   const getTotalCost=calculatingCost('extra-delivery',20,true);
-   calculatingTotalPrice(20,true);
-})
-//handling select storage button-----------------------------
+   const memoryCost=document.getElementById('extra-memory-cost');
+   memoryCost.innerText=0;
+   calculatingTotalPrice();
+    
+   
+ })
+ document.getElementById('extraGB-meory-btn').addEventListener('click', function(){
+    const memoryCost=document.getElementById('extra-memory-cost');
+    memoryCost.innerText=180;
+    calculatingTotalPrice();
+ })
+ //handling delivery button events
+ document.getElementById('delivey-btn').addEventListener('click', function(){
+    const deliveryCost=document.getElementById('extra-delivery-cost');
+    deliveryCost.innerText=0;
+    calculatingTotalPrice();
+ })
+ document.getElementById('fast-delibery-btn').addEventListener('click', function(){
+    const deliveryCost=document.getElementById('extra-delivery-cost');
+    deliveryCost.innerText=20;
+    calculatingTotalPrice();
+ })
+//handling storage button events
 document.getElementById('GB-storage-btn').addEventListener('click', function(){
-    const getTotalCost=calculatingCost('extra-storage',0,false);
+    const storageCost=document.getElementById('extra-storage-cost');
+    storageCost.innerText=0;
+    calculatingTotalPrice();
  })
 document.getElementById('extraGB-storage-btn').addEventListener('click', function(){
-    const getTotalCost=calculatingCost('extra-storage',100,true,'extraGB-storage-btn');
-    calculatingTotalPrice(100,true);
+    const storageCost=document.getElementById('extra-storage-cost');
+    storageCost.innerText=100;
+    calculatingTotalPrice();
  })
 document.getElementById('TB-storage-btn').addEventListener('click', function(){
-    const getTotalCost=calculatingCost('extra-storage',180,true,'TB-storage-btn');
-    calculatingTotalPrice(180,true);
+    const storageCost=document.getElementById('extra-storage-cost');
+    storageCost.innerText=180;
+    calculatingTotalPrice();
  })
-
- // handling promo code input events-------------------------------------------
-document.getElementById('discount-feild').addEventListener('keyup', function(){
-    const getDiscount=document.getElementById('discount-feild');
-    const getValue=getDiscount.value;
+ //handling promo code events
+ document.getElementById('discount-feild').addEventListener('keyup', function(event){
+   getInputValue=event.target.value;
  })
- //handling promo code button events------------------------
  document.getElementById('submit-code').addEventListener('click', function(){
-    const getDiscount=document.getElementById('discount-feild');
-    const getValue=getDiscount.value;
-    const footerPrice=document.getElementById('footer-price');
-    const footerPriceValue=parseInt(footerPrice.innerText);
-    if(getValue == 'stevekaku'){
-        const getDiscountPrice=footerPriceValue/5;
-        footerPrice.innerText=footerPriceValue-getDiscountPrice;
-
+    document.getElementById('discount-feild');
+    if(getInputValue == 'stevekaku'){
+        getDiscount();
     }
+
  })
