@@ -92,7 +92,7 @@ document.getElementById('discount-feild').addEventListener('keyup', function(){
     const footerPriceValue=parseInt(footerPrice.innerText);
     if(getValue == 'stevekaku'){
         const getDiscountPrice=footerPriceValue/5;
-        footerPrice.innerText=getDiscountPrice;
+        footerPrice.innerText=footerPriceValue-getDiscountPrice;
 
     }
  })
